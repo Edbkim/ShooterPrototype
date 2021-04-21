@@ -92,6 +92,7 @@ public class Player : MonoBehaviour
 
         Vector3 currentCameraRotation = _mainCamera.gameObject.transform.localEulerAngles;
         currentCameraRotation.x -= mouseY * _sensitivityY;
+        currentCameraRotation.x = Mathf.Clamp(currentCameraRotation.x, 0, 26);
 
         _mainCamera.gameObject.transform.localRotation = Quaternion.AngleAxis(currentCameraRotation.x, Vector3.right);
     }
