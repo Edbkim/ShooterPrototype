@@ -763,6 +763,7 @@ GameObject:
   - component: {fileID: 1756762835}
   - component: {fileID: 1756762834}
   - component: {fileID: 1756762840}
+  - component: {fileID: 1756762841}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -801,8 +802,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  _gravity: 1
-  _jumpHeight: 5
+  _gravity: 20
+  _jumpHeight: 10
   _sensitivityX: 2
   _sensitivityY: 2
 --- !u!136 &1756762836
@@ -874,7 +875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756762833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.76, z: 0}
+  m_LocalPosition: {x: 0, y: 2.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963194228}
@@ -893,6 +894,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8710f9a8e4b876e42b0a34d75f1a3c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bloodSplat: {fileID: 8029216605829794075, guid: 5fd1ac666b963486cabbc3f445312246,
+    type: 3}
+--- !u!114 &1756762841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756762833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f82590ec53aefd743b9b34fb631599b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _minHealth: 0
+  _currentHealth: 0
 --- !u!1 &1999043050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,6 +1131,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344416119597820567, guid: 42f92c5c089519841a1f5b97d8673f02,
+        type: 3}
+      propertyPath: m_Height
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344416119597820567, guid: 42f92c5c089519841a1f5b97d8673f02,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344416119597820567, guid: 42f92c5c089519841a1f5b97d8673f02,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 7289483795046149072, guid: 42f92c5c089519841a1f5b97d8673f02,
         type: 3}

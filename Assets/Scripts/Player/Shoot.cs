@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject _bloodSplat;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +30,19 @@ public class Shoot : MonoBehaviour
             Ray rayOrigin = Camera.main.ViewportPointToRay(center);
             RaycastHit hitInfo;
 
-            if (Physics.Raycast(rayOrigin, out hitInfo))
+            if (Physics.Raycast(rayOrigin, out hitInfo, Mathf.Infinity, 1 << 0 | 1 << 9))
             {
+                Health health = hitInfo.collider.GetComponent<Health>();
+
+                if (health != null)
+                {
+                    //Instantiate blood
+                    //postion of raycast hit
+                    //rotate towards the hit normal position (surface normal)
+
+                    Instantiate(_bloodSplat, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                    health.Damage(10);
+                }
 
                 Debug.Log("Hit: " + hitInfo.collider.name);
             }

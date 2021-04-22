@@ -7,9 +7,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _speed = 5;
     [SerializeField]
-    private float _gravity = 5;
+    private float _gravity = 20f;
     [SerializeField]
-    private float _jumpHeight = 5;
+    private float _jumpHeight = 1f;
 
     [SerializeField]
     private float _sensitivityX = 1;
@@ -61,20 +61,18 @@ public class Player : MonoBehaviour
         {
             float h = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
-
-             _direction = new Vector3(h, 0, z);
+            _direction = new Vector3(h, 0, z);
             _velocity = _direction * _speed;
-        }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _velocity.y += _jumpHeight;
-        }
+            _velocity = transform.TransformDirection(_velocity);
 
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _velocity.y = _jumpHeight;
+            }
+        }
 
         _velocity.y -= _gravity * Time.deltaTime;
-
-        _velocity = transform.TransformDirection(_velocity);
 
         _controller.Move(_velocity * Time.deltaTime);
     }
